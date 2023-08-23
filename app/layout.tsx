@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Header */}
-        <Header />
-        {/* Navbar */}
-        {children}
-        {/* Footer */}
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="relative ">
+            <div className="a">
+              {/* Header */}
+              <Header />
+              {/* Navbar */}
+              {/* SearchBox */}
+              {children}
+            </div>
+            <div className="sticky bg-fixed bottom-0 bg-background w-full">
+              {/* Footer */}
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
