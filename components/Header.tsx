@@ -13,7 +13,7 @@ export default function Header() {
         <MenuItem title="HOME" address="/" Icon={AiFillHome} />
         <MenuItem title="ABOUT" address="/about" Icon={BsFillInfoCircleFill} />
       </div>
-      <div className="flex flex-row mx-2">
+      <div className="flex flex-row mx-2 items-center">
         <ModeToggle />
         <AppLogo />
       </div>
