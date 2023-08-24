@@ -1,14 +1,12 @@
-"use client";
-
 import HomeResults from "@/components/Results";
 import { NEXT_PUBLIC_NEWS_API_KEY } from "@/lib/utils";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 
 
 
-export default async function SearchPage() {
-  const searchParams = useSearchParams();
-  const query = searchParams.get("query") || "india";
+export default async function SearchPage( { searchParams } : { searchParams : { query : string}}) {
+  // const searchParams = useSearchParams();
+  const query = searchParams.query || "india";
   const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${NEXT_PUBLIC_NEWS_API_KEY}`);
 
   if (!res.ok) {
