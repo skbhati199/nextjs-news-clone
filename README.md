@@ -17,7 +17,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - [x] Setup Next Project
 - [x] Create a header components with Applogo Component
 - [x] Create a navbar components with NavItem
-- [ ] Search Bar
+- [x] Search Bar
 - [x] Create a Card UI
 - [x] Integration api on home page
 - [x] All Tab Get Default data like apple

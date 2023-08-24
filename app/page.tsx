@@ -1,20 +1,26 @@
 import HomeResults from "@/components/Results";
+import { NEXT_PUBLIC_NEWS_API_KEY } from "@/lib/utils";
 
 
 export const dynamic = 'force-static'
 
-const NEWS_API_KEY = process.env.NEWS_API_KEY;
 
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: { type?: string };
+  searchParams?: any;
 }) {
   const type = searchParams?.type || "top-headlines";
 
-  const res = await fetch(`https://newsapi.org/v2/${type}?country=us&apiKey=${NEWS_API_KEY}`,
+  const url =  type === "top-headlines" 
+  ? `https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEXT_PUBLIC_NEWS_API_KEY}` 
+  : `https://newsapi.org/v2/everything?q=india&apiKey=${NEXT_PUBLIC_NEWS_API_KEY}`
+
+  const res = await fetch(url,
     { next: { revalidate: 1000 } }
   );
+
+  console.log(res.url)
 
   // if (!res.ok) {
   //   throw new Error("Failed to data fetching");
